@@ -1,0 +1,9 @@
+{
+  "name": "靈獸學習學院",
+  "short_name": "靈獸學院",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111d33",
+  "theme_color": "#111d33",
+  "icons": []
+}
