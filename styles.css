@@ -291,12 +291,15 @@ h2 {
 .beast-stage.compact {
   position: fixed;
   z-index: 20;
-  width: min(178px, calc(100vw - 28px));
-  padding: 8px;
+  width: min(112px, calc(100vw - 18px));
+  padding: 4px;
+  overflow: visible;
+  border-color: transparent;
+  background: transparent;
   cursor: grab;
   touch-action: none;
   user-select: none;
-  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.52);
+  box-shadow: none;
 }
 
 .beast-stage.compact:active {
@@ -304,52 +307,64 @@ h2 {
 }
 
 .beast-stage.compact .beast-mode-toggle {
-  top: 6px;
-  right: 6px;
-  min-height: 28px;
-  padding: 0 8px;
-  font-size: 0.76rem;
+  top: -6px;
+  right: -6px;
+  min-height: 24px;
+  padding: 0 7px;
+  border-color: rgba(235, 215, 180, 0.2);
+  background: rgba(7, 16, 28, 0.64);
+  font-size: 0.68rem;
 }
 
 .beast-stage.compact .beast-wrap {
-  min-height: 172px;
-  padding-top: 22px;
+  min-height: 116px;
+  padding-top: 0;
 }
 
 .beast-stage.compact .beast-atlas {
-  width: 92px;
-  border-radius: 8px;
+  width: 70px;
+  border-color: transparent;
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
   animation: float 3.2s ease-in-out infinite;
 }
 
 .beast-stage.compact .beast-panel {
   grid-template-columns: 1fr;
-  gap: 6px;
+  gap: 0;
+  margin-top: -6px;
 }
 
 .beast-stage.compact .beast-panel > div {
-  padding: 7px 8px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(7, 16, 28, 0.72);
+  text-align: center;
 }
 
 .beast-stage.compact .beast-panel > div:first-child,
-.beast-stage.compact .stage-lore {
+.beast-stage.compact .stage-lore,
+.beast-stage.compact .meter,
+.beast-stage.compact .beast-actions,
+.beast-stage.compact .aurora {
   display: none;
 }
 
-.beast-stage.compact .meter {
-  margin-top: 8px;
+.beast-stage.compact .label {
+  display: none;
+  margin: 0 3px 0 0;
+  color: rgba(244, 247, 239, 0.82);
+  font-size: 0.64rem;
 }
 
-.beast-stage.compact .beast-actions {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  margin-top: 8px;
-}
-
-.beast-stage.compact .beast-actions button {
-  min-height: 30px;
-  padding: 0 4px;
-  font-size: 0.74rem;
+.beast-stage.compact strong {
+  color: var(--ink);
+  font-size: 0.66rem;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .beast-atlas::before,

@@ -142,10 +142,10 @@ function setBeastCompact(compact) {
 
 function applyBeastPosition() {
   const ui = ensureUiState();
-  const width = Math.min(178, window.innerWidth - 28);
-  const height = 232;
+  const width = Math.min(112, window.innerWidth - 18);
+  const height = 156;
   const fallbackX = window.innerWidth - width - 12;
-  const fallbackY = Math.max(84, window.innerHeight - height - 22);
+  const fallbackY = 92;
   const x = clamp(ui.beastX ?? fallbackX, 8, window.innerWidth - width - 8);
   const y = clamp(ui.beastY ?? fallbackY, 8, window.innerHeight - height - 8);
 
