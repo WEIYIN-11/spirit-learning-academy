@@ -267,5 +267,229 @@ window.courseCatalog = [
         ]
       }
     ]
+  },
+  {
+    id: "english-basics",
+    title: "英文基礎入門",
+    shortTitle: "英文",
+    description: "從句子結構、be 動詞、一般動詞和疑問句開始建立英文基礎。",
+    lessons: [
+      {
+        title: "英文句子的基本順序",
+        body: "英文最常見的句子順序是「誰 + 做什麼 / 是什麼」。先抓住主詞和動詞，就比較不會被一整句英文嚇到。",
+        code: "I like cats.\nShe is a student.\nThey play games.",
+        terms: [
+          {
+            name: "主詞 Subject",
+            short: "句子裡的「誰」或「什麼東西」。",
+            detail: "例如 I、She、They、Tom 都可以當主詞。看到英文句子時，先找主詞，可以知道這句話在講誰。"
+          },
+          {
+            name: "動詞 Verb",
+            short: "句子裡的動作或狀態。",
+            detail: "like、play 是動作；is、are 則常用來表示「是」或「處於某種狀態」。"
+          },
+          {
+            name: "受詞 Object",
+            short: "動作影響到的對象。",
+            detail: "在 I like cats. 裡，cats 是被喜歡的對象，所以是受詞。"
+          }
+        ],
+        diagram: {
+          title: "句子順序圖解",
+          type: "flow",
+          rows: [
+            { left: "主詞", right: "I" },
+            { left: "動詞", right: "like" },
+            { left: "受詞", right: "cats" }
+          ]
+        },
+        quiz: [
+          {
+            question: "在句子 I like cats. 裡，主詞是哪一個？",
+            options: ["I", "like", "cats"],
+            answer: 0,
+            explain: "I 是這句話裡的「誰」，所以是主詞。",
+            why: "先問自己：這句話是誰在做動作？答案是 I，所以 I 是主詞。like 是動詞，cats 是受詞。"
+          },
+          {
+            question: "在 They play games. 裡，動詞是哪一個？",
+            options: ["play", "They", "games"],
+            answer: 0,
+            explain: "play 是動作，所以是動詞。",
+            why: "動詞通常回答「做什麼」。They 做什麼？play。games 是玩的對象。"
+          },
+          {
+            question: "英文最基本的肯定句常見順序是什麼？",
+            options: ["主詞 + 動詞", "動詞 + 主詞", "受詞 + 主詞"],
+            answer: 0,
+            explain: "英文常見順序是先說誰，再說做什麼。",
+            why: "例如 I study.、She runs. 都是主詞在前，動詞在後。先掌握這個順序，後面加受詞或時間地點會更容易。"
+          }
+        ]
+      },
+      {
+        title: "be 動詞：am / is / are",
+        body: "be 動詞常用來表示「是」或「狀態」。主詞不同，搭配的 be 動詞也不同：I 用 am，單數用 is，複數和 you 用 are。",
+        code: "I am happy.\nShe is a teacher.\nYou are ready.\nThey are friends.",
+        terms: [
+          {
+            name: "be 動詞",
+            short: "am、is、are 這一類表示狀態的動詞。",
+            detail: "be 動詞常把主詞和後面的身分、狀態、位置連起來。"
+          },
+          {
+            name: "單數",
+            short: "一個人或一個東西。",
+            detail: "She、He、It、Tom 都常視為單數，所以搭配 is。"
+          },
+          {
+            name: "複數",
+            short: "兩個以上的人或東西。",
+            detail: "They、we、my friends 都是複數概念，通常搭配 are。"
+          }
+        ],
+        diagram: {
+          title: "be 動詞配對",
+          type: "boxes",
+          rows: [
+            { left: "I", right: "am", note: "I am" },
+            { left: "She / He / It", right: "is", note: "單數" },
+            { left: "You / We / They", right: "are", note: "你、我們、他們" }
+          ]
+        },
+        quiz: [
+          {
+            question: "I ___ happy. 空格應該填什麼？",
+            options: ["am", "is", "are"],
+            answer: 0,
+            explain: "I 要搭配 am。",
+            why: "I 的 be 動詞很固定，通常是 I am。可以先把 I am 當成一組記起來。"
+          },
+          {
+            question: "She ___ a teacher. 空格應該填什麼？",
+            options: ["is", "am", "are"],
+            answer: 0,
+            explain: "She 是單數，所以搭配 is。",
+            why: "She 代表一位女性，屬於單數主詞。單數第三人稱常用 is。"
+          },
+          {
+            question: "They ___ friends. 空格應該填什麼？",
+            options: ["are", "is", "am"],
+            answer: 0,
+            explain: "They 是複數，所以搭配 are。",
+            why: "They 表示他們或她們，通常是兩個以上，所以用 are。"
+          }
+        ]
+      },
+      {
+        title: "一般動詞：每天做的事",
+        body: "一般動詞用來描述動作，例如 study、eat、play、read。當主詞是 he / she / it 這類單數第三人稱時，現在式動詞常會加 s。",
+        code: "I study English.\nShe studies English.\nThey read books.",
+        terms: [
+          {
+            name: "一般動詞",
+            short: "描述動作的字。",
+            detail: "study、eat、play、read 都是一般動詞，可以說明主詞做了什麼。"
+          },
+          {
+            name: "第三人稱單數",
+            short: "he、she、it 或單一名字。",
+            detail: "現在式裡，第三人稱單數主詞後面的動詞常加 s 或 es，例如 likes、studies。"
+          },
+          {
+            name: "現在式",
+            short: "描述現在、習慣或事實。",
+            detail: "I study English. 可以表示我現在學英文，也可以表示我平常有學英文。"
+          }
+        ],
+        diagram: {
+          title: "動詞加 s 圖解",
+          type: "boxes",
+          rows: [
+            { left: "I / You / We / They", right: "study", note: "不加 s" },
+            { left: "He / She / It", right: "studies", note: "加 s / es" },
+            { left: "Tom", right: "likes", note: "單一名字" }
+          ]
+        },
+        quiz: [
+          {
+            question: "She ___ English every day. 空格應該填什麼？",
+            options: ["studies", "study", "studying"],
+            answer: 0,
+            explain: "She 是第三人稱單數，現在式動詞 study 變 studies。",
+            why: "看到 She / He / It 當主詞時，要提醒自己檢查一般動詞有沒有加 s 或 es。study 結尾 y 變 ies。"
+          },
+          {
+            question: "They ___ books. 空格應該填什麼？",
+            options: ["read", "reads", "reading"],
+            answer: 0,
+            explain: "They 是複數主詞，現在式一般動詞用 read。",
+            why: "They 不需要讓動詞加 s。reads 通常會搭配 he、she、it 或單一名字。"
+          },
+          {
+            question: "Tom likes music. 這裡 likes 為什麼有 s？",
+            options: ["Tom 是第三人稱單數", "music 是複數", "like 一定要加 s"],
+            answer: 0,
+            explain: "Tom 是一個人，屬於第三人稱單數。",
+            why: "不是因為 music，也不是 like 永遠加 s，而是因為主詞 Tom 決定了動詞形式。"
+          }
+        ]
+      },
+      {
+        title: "疑問句：把問題問清楚",
+        body: "英文問問題時，常把 be 動詞或助動詞放到主詞前面。be 動詞句直接把 am / is / are 提前；一般動詞句常用 do / does 幫忙。",
+        code: "Are you ready?\nIs she a student?\nDo you like cats?\nDoes he play games?",
+        terms: [
+          {
+            name: "疑問句",
+            short: "用來問問題的句子。",
+            detail: "英文疑問句常會調整字序，不一定和中文一樣只在句尾加嗎。"
+          },
+          {
+            name: "助動詞 do / does",
+            short: "幫一般動詞形成問題。",
+            detail: "一般動詞要問問題時，常用 Do 或 Does 放到句首，例如 Do you like cats?"
+          },
+          {
+            name: "字序",
+            short: "單字排列的順序。",
+            detail: "Are you ready? 的順序是 Are + you，而不是 You are ready 的原本順序。"
+          }
+        ],
+        diagram: {
+          title: "問句轉換",
+          type: "flow",
+          rows: [
+            { left: "肯定句", right: "You are ready." },
+            { left: "be 提前", right: "Are you ready?" },
+            { left: "一般動詞", right: "Do you like cats?" }
+          ]
+        },
+        quiz: [
+          {
+            question: "You are ready. 變成問句最自然是哪一個？",
+            options: ["Are you ready?", "Do you are ready?", "You ready are?"],
+            answer: 0,
+            explain: "be 動詞句變問句時，常把 are 放到主詞 you 前面。",
+            why: "原句 You are ready. 有 be 動詞 are，所以問句直接把 are 提前：Are you ready?"
+          },
+          {
+            question: "___ you like cats? 空格應該填什麼？",
+            options: ["Do", "Are", "Is"],
+            answer: 0,
+            explain: "like 是一般動詞，問句常用 Do 幫忙。",
+            why: "You like cats. 沒有 be 動詞，所以不能直接用 Are。一般動詞問句常用 Do + 主詞 + 動詞。"
+          },
+          {
+            question: "Does he play games? 裡為什麼用 Does？",
+            options: ["he 是第三人稱單數", "games 是遊戲", "play 已經加 s"],
+            answer: 0,
+            explain: "he 是第三人稱單數，所以問句用 does。",
+            why: "用 does 之後，後面的主要動詞要回到原形 play，不寫 plays。"
+          }
+        ]
+      }
+    ]
   }
 ];
