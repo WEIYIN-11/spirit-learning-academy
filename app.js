@@ -13,6 +13,7 @@ const stages = [
 
 const state = loadState();
 let selectedAnswer = null;
+let shuffledOptions = [];
 
 const viewButtons = document.querySelectorAll(".tab");
 const views = {
@@ -262,6 +263,7 @@ function renderQuiz() {
   const progress = courseState(activeCourse().id);
   const question = currentQuestion();
   selectedAnswer = null;
+  shuffledOptions = shuffleOptions(question);
   nodes.quizCounter.textContent = `題目 ${progress.questionIndex + 1}/${currentLesson().quiz.length}`;
   nodes.quizReward.textContent = "+15 XP";
   nodes.questionText.textContent = question.question;
@@ -272,14 +274,28 @@ function renderQuiz() {
   nodes.nextButton.textContent = progress.questionIndex === currentLesson().quiz.length - 1 ? "完成本課" : "下一題";
   nodes.answers.innerHTML = "";
 
-  question.options.forEach((option, index) => {
+  shuffledOptions.forEach((option, index) => {
     const button = document.createElement("button");
     button.className = "answer-button";
     button.type = "button";
-    button.textContent = option;
+    button.textContent = option.text;
     button.addEventListener("click", () => chooseAnswer(index));
     nodes.answers.append(button);
   });
+}
+
+function shuffleOptions(question) {
+  const options = question.options.map((text, originalIndex) => ({
+    text,
+    correct: originalIndex === question.answer
+  }));
+
+  for (let index = options.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [options[index], options[swapIndex]] = [options[swapIndex], options[index]];
+  }
+
+  return options;
 }
 
 function chooseAnswer(index) {
@@ -290,11 +306,12 @@ function chooseAnswer(index) {
   const progress = courseState(course.id);
   const question = currentQuestion();
   const buttons = [...nodes.answers.querySelectorAll("button")];
-  const isCorrect = index === question.answer;
+  const correctIndex = shuffledOptions.findIndex((option) => option.correct);
+  const isCorrect = shuffledOptions[index]?.correct;
   const answerKey = `${progress.lessonIndex}-${progress.questionIndex}`;
 
   buttons.forEach((button, buttonIndex) => {
-    if (buttonIndex === question.answer) button.classList.add("correct");
+    if (buttonIndex === correctIndex) button.classList.add("correct");
     if (buttonIndex === index && !isCorrect) button.classList.add("wrong");
     button.disabled = true;
   });
