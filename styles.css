@@ -148,16 +148,16 @@ h2 {
 .beast-wrap {
   position: relative;
   display: grid;
-  min-height: 392px;
+  min-height: 378px;
   place-items: center;
 }
 
 .beast-atlas {
-  width: min(62vw, 244px);
-  aspect-ratio: 0.6;
+  width: min(66vw, 258px);
+  aspect-ratio: 0.73;
   border: 1px solid rgba(235, 215, 180, 0.32);
   border-radius: 8px;
-  background-image: url("./assets/spirit-fox-evolution.png");
+  background-image: url("./assets/spirit-fox-stage-atlas.png");
   background-repeat: no-repeat;
   background-size: 500% 200%;
   background-position: 0 0;
@@ -317,12 +317,12 @@ h2 {
 }
 
 .beast-stage.compact .beast-wrap {
-  min-height: 116px;
+  min-height: 112px;
   padding-top: 0;
 }
 
 .beast-stage.compact .beast-atlas {
-  width: 70px;
+  width: 76px;
   border-color: transparent;
   border-radius: 6px;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
