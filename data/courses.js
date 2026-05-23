@@ -491,5 +491,229 @@ window.courseCatalog = [
         ]
       }
     ]
+  },
+  {
+    id: "sql-basics",
+    title: "SQL 基礎入門",
+    shortTitle: "SQL",
+    description: "從資料表、查詢、篩選和排序開始學會讀懂資料庫。",
+    lessons: [
+      {
+        title: "資料表像一張有欄位的表格",
+        body: "SQL 常用來跟資料庫溝通。資料通常放在資料表裡，資料表像試算表：直向是欄位，橫向是一筆一筆資料。",
+        code: "users\n\nid | name | age\n1  | Amy  | 18\n2  | Ben  | 21",
+        terms: [
+          {
+            name: "資料庫 Database",
+            short: "存放資料的地方。",
+            detail: "資料庫像一個整理好的資料櫃，裡面可以有很多張資料表，例如 users、orders、products。"
+          },
+          {
+            name: "資料表 Table",
+            short: "同一類資料放在一起的表格。",
+            detail: "users 資料表可以放使用者資料，products 資料表可以放商品資料。"
+          },
+          {
+            name: "欄位 Column",
+            short: "每筆資料有哪些屬性。",
+            detail: "name、age、email 都可以是欄位。欄位像表格最上方的標題。"
+          }
+        ],
+        diagram: {
+          title: "資料表圖解",
+          type: "boxes",
+          rows: [
+            { left: "Table", right: "users", note: "資料表" },
+            { left: "Columns", right: "id, name, age", note: "欄位" },
+            { left: "Rows", right: "1, Amy, 18", note: "一筆資料" }
+          ]
+        },
+        quiz: [
+          {
+            question: "在 users 表中，name、age 通常叫做什麼？",
+            options: ["欄位", "資料庫", "排序"],
+            answer: 0,
+            explain: "name、age 是資料表裡的欄位。",
+            why: "欄位描述每筆資料有哪些屬性。每一列資料都會依照欄位放入對應的值。"
+          },
+          {
+            question: "一筆使用者資料，例如 1, Amy, 18，通常叫做什麼？",
+            options: ["一列資料", "一個資料庫", "一個指令"],
+            answer: 0,
+            explain: "橫向的一筆資料通常稱為 row，也就是一列資料。",
+            why: "欄位是直向分類；row 是把同一個人的 id、name、age 串在一起的一筆紀錄。"
+          },
+          {
+            question: "SQL 主要用來做什麼？",
+            options: ["跟資料庫溝通", "畫圖片", "製作音樂"],
+            answer: 0,
+            explain: "SQL 是常見的資料庫查詢語言。",
+            why: "你可以用 SQL 查資料、篩資料、排序資料，也可以新增、修改或刪除資料。"
+          }
+        ]
+      },
+      {
+        title: "SELECT：選出想看的欄位",
+        body: "SELECT 用來指定你想看哪些欄位，FROM 用來指定資料來自哪一張資料表。最基本的查詢就是 SELECT ... FROM ...。",
+        code: "SELECT name, age\nFROM users;",
+        terms: [
+          {
+            name: "SELECT",
+            short: "選出要看的欄位。",
+            detail: "SELECT name, age 代表只看 name 和 age 這兩個欄位。"
+          },
+          {
+            name: "FROM",
+            short: "指定資料表來源。",
+            detail: "FROM users 代表資料要從 users 這張資料表拿。"
+          },
+          {
+            name: "*",
+            short: "代表所有欄位。",
+            detail: "SELECT * FROM users; 會查出 users 表裡所有欄位。剛開始方便，但正式查詢時通常會指定需要的欄位。"
+          }
+        ],
+        diagram: {
+          title: "SELECT 查詢圖解",
+          type: "flow",
+          rows: [
+            { left: "選欄位", right: "SELECT name, age" },
+            { left: "選資料表", right: "FROM users" },
+            { left: "得到結果", right: "name + age" }
+          ]
+        },
+        quiz: [
+          {
+            question: "SELECT name FROM users; 會查出哪個欄位？",
+            options: ["name", "users", "所有欄位"],
+            answer: 0,
+            explain: "SELECT 後面寫 name，所以查出 name 欄位。",
+            why: "FROM users 只是告訴 SQL 資料來源是 users 表，不是要顯示 users 這個欄位。"
+          },
+          {
+            question: "FROM users 的意思是什麼？",
+            options: ["從 users 資料表取資料", "建立 users 欄位", "刪除 users"],
+            answer: 0,
+            explain: "FROM 用來指定資料表來源。",
+            why: "SQL 查詢常像一句話：SELECT 要看什麼，FROM 從哪裡看。"
+          },
+          {
+            question: "SELECT * FROM users; 裡的 * 代表什麼？",
+            options: ["所有欄位", "只有第一筆", "錯誤符號"],
+            answer: 0,
+            explain: "* 代表查出所有欄位。",
+            why: "星號很方便，但資料多時可能查出太多不需要的欄位，所以之後要學會只選需要的欄位。"
+          }
+        ]
+      },
+      {
+        title: "WHERE：只留下符合條件的資料",
+        body: "WHERE 用來加條件，讓查詢結果只留下你想看的資料。例如只看年齡大於等於 18 的使用者。",
+        code: "SELECT name, age\nFROM users\nWHERE age >= 18;",
+        terms: [
+          {
+            name: "WHERE",
+            short: "設定篩選條件。",
+            detail: "WHERE age >= 18 代表只留下 age 大於或等於 18 的資料。"
+          },
+          {
+            name: "條件",
+            short: "判斷資料要不要留下的規則。",
+            detail: "age >= 18、name = 'Amy' 都是條件。符合條件的資料會出現在結果裡。"
+          },
+          {
+            name: "比較運算子",
+            short: "用來比較大小或是否相等。",
+            detail: "=、>、<、>=、<= 都是常見比較運算子。SQL 判斷相等通常用單一等號 =。"
+          }
+        ],
+        diagram: {
+          title: "WHERE 篩選圖解",
+          type: "flow",
+          rows: [
+            { left: "原始資料", right: "所有 users" },
+            { left: "條件", right: "age >= 18" },
+            { left: "結果", right: "成年使用者" }
+          ]
+        },
+        quiz: [
+          {
+            question: "WHERE age >= 18 代表什麼？",
+            options: ["只留下 age 大於或等於 18 的資料", "把 age 改成 18", "刪除 age 欄位"],
+            answer: 0,
+            explain: "WHERE 是篩選條件，不是修改資料。",
+            why: "這句話只是查詢時過濾結果，符合 age >= 18 的 row 才會被顯示。"
+          },
+          {
+            question: "如果想找 name 等於 Amy 的資料，哪個條件比較合理？",
+            options: ["WHERE name = 'Amy'", "WHERE name > 'Amy'", "SELECT name = Amy"],
+            answer: 0,
+            explain: "SQL 判斷相等常用 =，文字通常用引號包起來。",
+            why: "name 是欄位，'Amy' 是文字值。WHERE name = 'Amy' 的意思是只留下 name 欄位等於 Amy 的資料。"
+          },
+          {
+            question: "WHERE 放在查詢裡主要負責什麼？",
+            options: ["篩選資料", "指定資料表", "指定顯示欄位"],
+            answer: 0,
+            explain: "WHERE 負責篩選資料。",
+            why: "SELECT 指定欄位，FROM 指定資料表，WHERE 指定哪些 row 要留下來。"
+          }
+        ]
+      },
+      {
+        title: "ORDER BY 與 LIMIT：排序和取前幾筆",
+        body: "ORDER BY 可以排序結果，LIMIT 可以限制顯示幾筆。這很適合用來看最高分、最新資料或前幾名。",
+        code: "SELECT name, score\nFROM students\nORDER BY score DESC\nLIMIT 3;",
+        terms: [
+          {
+            name: "ORDER BY",
+            short: "依照欄位排序。",
+            detail: "ORDER BY score 代表依照 score 欄位排序。"
+          },
+          {
+            name: "ASC / DESC",
+            short: "升冪與降冪。",
+            detail: "ASC 是小到大，DESC 是大到小。分數排行榜通常會用 DESC。"
+          },
+          {
+            name: "LIMIT",
+            short: "限制結果筆數。",
+            detail: "LIMIT 3 代表只顯示前三筆結果。"
+          }
+        ],
+        diagram: {
+          title: "排行榜查詢圖解",
+          type: "flow",
+          rows: [
+            { left: "選資料", right: "SELECT name, score" },
+            { left: "排序", right: "ORDER BY score DESC" },
+            { left: "取前三", right: "LIMIT 3" }
+          ]
+        },
+        quiz: [
+          {
+            question: "ORDER BY score DESC 代表什麼？",
+            options: ["依 score 從大到小排序", "依 score 從小到大排序", "只顯示 score 欄位"],
+            answer: 0,
+            explain: "DESC 是降冪，也就是從大到小。",
+            why: "如果你要做分數排行榜，通常希望高分在前面，所以會用 ORDER BY score DESC。"
+          },
+          {
+            question: "LIMIT 3 的意思是什麼？",
+            options: ["只顯示 3 筆結果", "把分數變成 3", "從第 3 欄開始查"],
+            answer: 0,
+            explain: "LIMIT 會限制查詢結果的筆數。",
+            why: "排序後再 LIMIT 3，就能拿到排序結果的前三筆。"
+          },
+          {
+            question: "如果想看最新的 5 筆資料，通常會用哪種組合？",
+            options: ["ORDER BY created_at DESC LIMIT 5", "WHERE created_at LIMIT DESC", "SELECT LIMIT created_at"],
+            answer: 0,
+            explain: "先依時間由新到舊排序，再限制 5 筆。",
+            why: "created_at 通常代表建立時間。DESC 讓新的在前面，LIMIT 5 只取前五筆。"
+          }
+        ]
+      }
+    ]
   }
 ];
